@@ -1,0 +1,14 @@
+name: HTML-Executer Workflow
+
+on:
+ push:
+  branches:
+    - main
+
+jobs:
+  Demo:
+   runs-on: ubuntu-latest
+
+   steps:
+     - name: Execute html page
+       run: "index.html"
