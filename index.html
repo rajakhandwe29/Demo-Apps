@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Maya Chen, a product designer shaping clear, useful digital experiences.">
+    <title>Maya Chen — Product Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root { --ink:#15252c; --muted:#647277; --paper:#f4f1ea; --blue:#2057e6; --yellow:#f3ce43; --line:rgba(21,37,44,.16); --sans:"DM Sans",sans-serif; --display:"Playfair Display",Georgia,serif; --mono:"DM Mono",monospace; }
+        * { box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { margin:0; color:var(--ink); background:var(--paper); font-family:var(--sans); font-size:16px; line-height:1.5; }
+        a { color:inherit; text-decoration:none; }
+        .wrap { width:min(1180px,calc(100% - 48px)); margin:0 auto; }
+        .topbar { display:flex; align-items:center; justify-content:space-between; padding:28px 0; border-bottom:1px solid var(--line); }
+        .mark { font-weight:700; letter-spacing:-.04em; font-size:20px; }
+        .mark span { color:var(--blue); }
+        nav { display:flex; gap:30px; font-size:14px; font-weight:500; }
+        nav a { position:relative; }
+        nav a::after { content:""; position:absolute; left:0; bottom:-5px; width:0; height:2px; background:var(--blue); transition:width .25s ease; }
+        nav a:hover::after { width:100%; }
+        .availability { display:flex; align-items:center; gap:9px; font:11px var(--mono); text-transform:uppercase; letter-spacing:.08em; }
+        .availability i { width:8px; height:8px; border-radius:50%; background:#48a86b; box-shadow:0 0 0 4px rgba(72,168,107,.14); }
+        .hero { padding:94px 0 110px; display:grid; grid-template-columns:1.05fr .95fr; gap:70px; align-items:end; }
+        .eyebrow,.section-label { font:500 11px var(--mono); text-transform:uppercase; letter-spacing:.12em; color:var(--blue); }
+        h1 { font:700 clamp(56px,8.3vw,112px)/.93 var(--display); letter-spacing:-.065em; margin:22px 0 28px; max-width:760px; }
+        h1 em { color:var(--blue); font-style:italic; }
+        .intro { max-width:410px; font-size:18px; color:var(--muted); margin:0; }
+        .hero-side { display:flex; flex-direction:column; gap:27px; }
+        .portrait { overflow:hidden; aspect-ratio:1.18; background:var(--yellow); position:relative; }
+        .portrait img { width:100%; height:100%; object-fit:cover; filter:saturate(.8); mix-blend-mode:multiply; }
+        .portrait::after { content:"01 / HELLO"; position:absolute; left:18px; bottom:15px; color:white; font:11px var(--mono); letter-spacing:.11em; }
+        .hero-note { display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--line); padding-top:15px; font-size:13px; color:var(--muted); }
+        .arrow { color:var(--blue); font-size:25px; }
+        section { padding:92px 0; border-top:1px solid var(--line); }
+        .section-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:44px; }
+        h2 { font:700 clamp(34px,5vw,57px)/1 var(--display); letter-spacing:-.05em; margin:0; }
+        .section-count { color:var(--muted); font:11px var(--mono); }
+        .projects { display:grid; grid-template-columns:repeat(2,1fr); gap:58px 30px; }
+        .project { display:block; }
+        .project-image { position:relative; overflow:hidden; aspect-ratio:1.42; background:#d7d4cc; margin-bottom:17px; }
+        .project-image img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+        .project:hover img { transform:scale(1.04); }
+        .project-image::before { content:"VIEW CASE STUDY ↗"; position:absolute; z-index:1; right:15px; top:15px; background:var(--yellow); padding:8px 10px; font:10px var(--mono); opacity:0; transform:translateY(-5px); transition:opacity .25s,transform .25s; }
+        .project:hover .project-image::before { opacity:1; transform:translateY(0); }
+        .project-meta { display:flex; justify-content:space-between; gap:20px; align-items:baseline; }
+        .project h3 { font-size:20px; margin:0; letter-spacing:-.03em; }
+        .project p { color:var(--muted); font-size:13px; margin:3px 0 0; }
+        .project-number { color:var(--blue); font:12px var(--mono); }
+        .about { display:grid; grid-template-columns:.7fr 1fr; gap:90px; }
+        .about-copy { font-size:26px; line-height:1.25; letter-spacing:-.035em; max-width:600px; margin:0; }
+        .about-copy strong { color:var(--blue); font-weight:500; }
+        .details { border-top:1px solid var(--line); margin-top:38px; }
+        .detail-row { display:grid; grid-template-columns:1fr 1.6fr; padding:15px 0; border-bottom:1px solid var(--line); font-size:14px; }
+        .detail-row span:first-child { color:var(--muted); }
+        .detail-row span:last-child { font-weight:500; }
+        .contact { padding:105px 0 120px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; }
+        .contact h2 { max-width:570px; }
+        .contact-copy { color:var(--muted); max-width:260px; margin:0 0 25px; }
+        .email { display:inline-block; color:var(--blue); font-size:18px; border-bottom:2px solid var(--yellow); padding-bottom:4px; }
+        footer { border-top:1px solid var(--line); padding:22px 0; display:flex; justify-content:space-between; font:11px var(--mono); color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+        footer div:last-child { display:flex; gap:20px; }
+        @media (max-width:700px) {
+            .wrap { width:min(100% - 32px,1180px); }
+            nav { display:none; }
+            .topbar { padding:20px 0; }
+            .hero { padding:67px 0 74px; display:block; }
+            h1 { font-size:clamp(53px,16vw,85px); }
+            .hero-side { margin-top:44px; }
+            .projects,.about,.contact { grid-template-columns:1fr; gap:36px; }
+            section { padding:70px 0; }
+            .section-head { margin-bottom:30px; }
+            .about-copy { font-size:23px; }
+            .contact { padding:75px 0 85px; }
+            footer { display:block; line-height:2; }
+            footer div:last-child { gap:15px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="wrap topbar"><a class="mark" href="#top">MC<span>.</span></a><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav><div class="availability"><i></i> Available for select work</div></header>
+    <main id="top">
+        <div class="wrap hero"><div><div class="eyebrow">Product designer / New York</div><h1>I make digital things feel <em>obvious.</em></h1><p class="intro">I’m Maya, a product designer who turns complex systems into simple, useful experiences for real people.</p></div><div class="hero-side"><div class="portrait"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85" alt="Team collaborating around a table"></div><div class="hero-note"><span>Currently designing at Northstar Studio</span><span class="arrow">↘</span></div></div></div>
+        <section id="work"><div class="wrap"><div class="section-head"><div class="section-label">Selected work</div><div class="section-count">(04 projects)</div></div><div class="projects">
+            <a class="project" href="#contact"><div class="project-image"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=85" alt="People in a creative workshop"></div><div class="project-meta"><div><h3>Common Ground</h3><p>Community platform · Strategy, UX, UI</p></div><span class="project-number">01</span></div></a>
+            <a class="project" href="#contact"><div class="project-image"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85" alt="Mobile banking interface on a phone"></div><div class="project-meta"><div><h3>Good Money</h3><p>Fintech · Product design, research</p></div><span class="project-number">02</span></div></a>
+            <a class="project" href="#contact"><div class="project-image"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1000&q=85" alt="Designer working at a desk"></div><div class="project-meta"><div><h3>Field Notes</h3><p>Editorial system · Art direction, digital</p></div><span class="project-number">03</span></div></a>
+            <a class="project" href="#contact"><div class="project-image"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1000&q=85" alt="Laptop displaying a clean product interface"></div><div class="project-meta"><div><h3>Onward</h3><p>Climate tech · Brand, product design</p></div><span class="project-number">04</span></div></a>
+        </div></div></section>
+        <section id="about"><div class="wrap about"><div class="section-label">A little context</div><div><p class="about-copy">Good design is a team sport. I work closely with founders, engineers, and the people who use the product to make <strong>clearer decisions</strong> and ship work that earns its place.</p><div class="details"><div class="detail-row"><span>Based in</span><span>Brooklyn, NY</span></div><div class="detail-row"><span>Experience</span><span>8 years in product design</span></div><div class="detail-row"><span>Previously</span><span>Arc, Daylight, Independent</span></div></div></div></div></section>
+        <section class="wrap contact" id="contact"><div><div class="section-label">Have a good one?</div><h2>Let’s make something useful.</h2></div><div><p class="contact-copy">For collaborations, product questions, or a nice hello, my inbox is open.</p><a class="email" href="mailto:hello@mayachen.design">hello@mayachen.design ↗</a></div></section>
+    </main>
+    <footer class="wrap"><div>© 2024 Maya Chen</div><div><a href="#top">Back to top ↑</a><a href="#contact">LinkedIn ↗</a></div></footer>
+</body>
+</html>
