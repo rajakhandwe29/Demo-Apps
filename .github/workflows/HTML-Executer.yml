@@ -11,4 +11,4 @@ jobs:
 
    steps:
      - name: Execute html page
-       run: "index.html"
+       run: index.html
