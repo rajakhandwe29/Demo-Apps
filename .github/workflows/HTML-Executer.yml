@@ -1,14 +1,19 @@
-name: HTML-Executer Workflow
+name: HTML-Executor Workflow
 
 on:
- push:
-  branches:
-    - main
+  push:
+    branches:
+      - main
 
 jobs:
   Demo:
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-   steps:
-     - name: Execute html page
-       run: index.html
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check HTML file
+        run: |
+          ls -la
+          cat index.html
