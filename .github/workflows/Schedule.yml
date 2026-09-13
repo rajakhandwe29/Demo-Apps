@@ -11,7 +11,4 @@ jobs:
 
    steps:
     - name: Print Message
-      run: echo"Scdule job Executed Successfully"
-  
- 
-   
+      run: echo "Schedule job Executed Successfully"
